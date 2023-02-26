@@ -1,0 +1,48 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.calculator div {
+  background-color: skyblue;
+}
+
+#display{
+  background: gray;
+}
+
+.calculator{
+  display: grid;
+  grid-template-areas: "display display display display"
+                       "seven eight nine clear"
+                       "four five six equals"
+                       "one two three add"
+                       "zero multiply divide subtract";
+
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
+  grid-template-rows: repeat(5, minmax(50px 1fr));
+  gap: 5px;
+  width: 50vw;
+  height: 50vh;
+}
+
+/* Grid area calc */
+.display {grid-area: display;}
+.clear {grid-area: clear;}
+.equals {grid-area: equals;}
+.add {grid-area: add;}
+.subtract {grid-area: subtract;}
+.divide {grid-area: divide;}
+.multiply {grid-area: multiply;}
+
+/* Grid area numbers */
+.seven {grid-area: seven;}
+.eight {grid-area: eight;}
+.nine {grid-area: nine;}
+.four {grid-area: four;}
+.five {grid-area: five;}
+.six {grid-area: six;}
+.one {grid-area: one;}
+.two {grid-area: two;}
+.tree {grid-area: tree;}
+.zero {grid-area: zero;}
