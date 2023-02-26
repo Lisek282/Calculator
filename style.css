@@ -3,13 +3,23 @@
   margin: 0;
 }
 
-.calculator div {
-  background-color: skyblue;
+body{
+  display: flex;
+  height: 100vh;
 }
 
-#display{
-  background: gray;
+main{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c;
 }
+
+/* .calculator div {
+  background-color: skyblue;
+} */
+
 
 .calculator{
   display: grid;
@@ -27,9 +37,9 @@
 }
 
 /* Grid area calc */
-.display {grid-area: display;}
-.clear {grid-area: clear;}
-.equals {grid-area: equals;}
+.display {grid-area: display; background-color: gray;}
+.clear {grid-area: clear; background-color: red;}
+.equals {grid-area: equals; background-color: #71AE21;}
 .add {grid-area: add;}
 .subtract {grid-area: subtract;}
 .divide {grid-area: divide;}
@@ -46,3 +56,14 @@
 .two {grid-area: two;}
 .tree {grid-area: tree;}
 .zero {grid-area: zero;}
+
+.number{
+  background: #0165E7;
+}
+
+.add,
+.subtract,
+.divide,
+.multiply{
+  background: whitesmoke;
+}
