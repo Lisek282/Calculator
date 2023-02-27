@@ -3,6 +3,7 @@ const display = document.getElementById('display')
 let displayValue = ''
 
 document.addEventListener('click', (e)=>{
+  // Numbers
   if(e.target.dataset.one === '1'){
     getNumbers('1')
   }
@@ -33,9 +34,24 @@ document.addEventListener('click', (e)=>{
   if(e.target.dataset.zero === '0' && displayValue !== ''){
     getNumbers('0')
   }
-
+  // Operators
   if(e.target.dataset.clear === 'clear'){
     clearDisplay()
+  }
+  if(e.target.dataset.subtract === 'subtract'){
+    console.log("subtract")
+  }
+  if(e.target.dataset.add === 'add'){
+    console.log("add")
+  }
+  if(e.target.dataset.multiply === 'multiply'){
+    console.log("multiply")
+  }
+  if(e.target.dataset.divide === 'divide'){
+    console.log("divide")
+  }
+  if(e.target.dataset.equals === 'equals'){
+    console.log('equals')
   }
 })
 
