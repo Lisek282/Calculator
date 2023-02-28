@@ -90,10 +90,20 @@ function conditionsToOperate(operator){
     operatorValue = operator
     displayValue = ''
     display.innerText = '---'
+    console.log(`waunek 1`)
   }
-  else if(number1){
+  else if(number1 && !number2 && displayValue){
+    number2 = +displayValue
+    operate(operatorValue, number1, number2)
+    operatorValue = operator
+    number2 = null
+    displayValue = ''
+    console.log(`waunek 2`)
+  } 
+  else if(number1 && !number2){
     operatorValue = operator
     display.innerText = '---'
+    console.log(`waunek 3`)
   }
 }
 
@@ -135,7 +145,7 @@ function operate(operator, num1, num2){
 
   display.innerText = `${result}`
   number1 = result
-  
+  console.log(`liczenie`)
 }
 
 
