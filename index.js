@@ -1,6 +1,11 @@
 const number = document.getElementsByClassName("number")
 const display = document.getElementById('display')
 let displayValue = ''
+let number1 = null
+let number2 = null
+let operatorValue = ''
+
+
 
 document.addEventListener('click', (e)=>{
   // Numbers
@@ -39,19 +44,27 @@ document.addEventListener('click', (e)=>{
     clearDisplay()
   }
   if(e.target.dataset.subtract === 'subtract'){
-    console.log("subtract")
+    conditionsToOperate('subtract')
   }
   if(e.target.dataset.add === 'add'){
-    console.log("add")
+    conditionsToOperate('add')
   }
   if(e.target.dataset.multiply === 'multiply'){
-    console.log("multiply")
+    conditionsToOperate('multiply')
   }
   if(e.target.dataset.divide === 'divide'){
-    console.log("divide")
+    conditionsToOperate('divide')
   }
   if(e.target.dataset.equals === 'equals'){
-    console.log('equals')
+
+    if(operatorValue && number1 && !number2){
+      number2 = +displayValue
+      operate(operatorValue, number1, number2)
+      number2 = null
+      displayValue = ''
+      operatorValue = ''
+    }
+    
   }
 })
 
@@ -63,7 +76,25 @@ function getNumbers(num){
 
 function clearDisplay(){
   displayValue = ''
+  number1 = null
+  number2 = null
+  operatorValue = ''
   display.innerText = '0'
+
+}
+
+function conditionsToOperate(operator){
+
+  if(displayValue && !number1){
+    number1 = +displayValue
+    operatorValue = operator
+    displayValue = ''
+    display.innerText = '---'
+  }
+  else if(number1){
+    operatorValue = operator
+    display.innerText = '---'
+  }
 }
 
 function add(num1, num2){
@@ -83,6 +114,30 @@ function divide(num1, num2){
 }
 
 function operate(operator, num1, num2){
-  add(num1, num2)
+  let result
+
+  switch(operator){
+    case 'add':
+      result = add(num1,num2)
+      break
+    case 'subtract':
+      result = subtract(num1, num2)
+      break
+    case 'divide':
+      result = divide(num1, num2)
+      break
+    case 'multiply':
+      result = multiply(num1, num2)
+      break
+    default:
+      console.log("something goes wrong")
+  }
+
+  display.innerText = `${result}`
+  number1 = result
+  
 }
+
+
+
 
